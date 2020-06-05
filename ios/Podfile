@@ -93,3 +93,12 @@ target 'Akiro' do
     flipper_post_install(installer)
   end
 end
+
+target 'Akiro-tvOS' do
+  # Pods for Akiro-tvOS
+
+  target 'Akiro-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+end

@@ -12,16 +12,13 @@
   "dependencies": {
     "react": "16.11.0",
     "react-native": "0.62.2",
-    "react-native-elements": "^2.0.2",
+    "react-native-elements": "^2.0.0",
     "react-native-globalize": "^4.3.1",
     "react-native-sqlite-storage": "^5.0.0",
-    "react-native-vector-icons": "6.6.0",
+    "react-native-vector-icons": "^6.6.0",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
     "redux-saga": "^1.1.3"
-  },
-  "jest": {
-    "preset": "jest-react-native"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
@@ -32,5 +29,8 @@
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.58.0",
     "react-test-renderer": "16.11.0"
+  },
+  "jest": {
+    "preset": "react-native"
   }
 }
