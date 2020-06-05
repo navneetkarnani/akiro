@@ -1,11 +1,12 @@
+/**
+ * @flow
+ */
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Navigator,
   Text,
   TouchableHighlight
 } from 'react-native';
+import { Navigator } from 'react-native-deprecated-custom-components';
 import { FormattedWrapper } from 'react-native-globalize';
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
@@ -120,9 +121,6 @@ export default class Akiro extends Component {
                 }
             />
         </Provider>
-
     );
   }
 }
-
-AppRegistry.registerComponent('Akiro', () => Akiro);
