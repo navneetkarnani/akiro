@@ -96,4 +96,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-module.exports = connect(mapStateToProps)(AccountSelectScreen)
+export default connect(mapStateToProps)(AccountSelectScreen)

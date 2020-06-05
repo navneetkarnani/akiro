@@ -208,4 +208,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-module.exports = connect(mapStateToProps)(PayeeSelectScreen)
+export default connect(mapStateToProps)(PayeeSelectScreen)

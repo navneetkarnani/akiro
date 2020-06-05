@@ -7,7 +7,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 import { Navigator } from 'react-native-deprecated-custom-components';
-import { FormattedWrapper } from 'react-native-globalize';
+import { GlobalizeProvider, loadCldr } from 'react-native-globalize';
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
@@ -33,7 +33,7 @@ import { store as repository} from './app/store/SQLiteStore'
 const NavigationBarRouteMapper = {
   LeftButton: function( route, navigator, index, navState ){
     if (route.index === 0) {
-        // TODO Show Hamburger menu
+      // TODO Show Hamburger menu
       return null;
     } else {
       return (
@@ -55,6 +55,12 @@ const NavigationBarRouteMapper = {
   }
 }
 
+// loading German, English, and Spanish
+loadCldr(
+  require('react-native-globalize/locale-data/de'),
+  require('react-native-globalize/locale-data/en'),
+);
+
 const sagaMiddleware = createSagaMiddleware();
 let store = createStore( expenseTracker, applyMiddleware(sagaMiddleware) );
 sagaMiddleware.run( rootSaga );
@@ -66,61 +72,59 @@ loadExampleData( repository )
 
 export default class Akiro extends Component {
   _renderScene( route, navigator ) {
-      const globalNavigatorProps = { navigator }
+    const globalNavigatorProps = { navigator }
 
-      switch( route.name ) {
-          case "ListExpenses":
-          // TODO remove FormattedWrapper, use getChildContext instead
-          return (
-              <FormattedWrapper locale="de" currency="EUR">
-                  <ExpensesListScreen {...globalNavigatorProps} />
-              </FormattedWrapper>
-          )
-          case "EnterExpense":
-            // TODO remove FormattedWrapper, use getChildContext instead
-            return (
-                <FormattedWrapper locale="de" currency="EUR">
-                    <ExpenseEntryScreen
-                        expense={route.expense}
-                        {...globalNavigatorProps} />
-                </FormattedWrapper>
-            )
-        case "SelectEnvelope":
-            return (<EnvelopeSelectScreen
-                onSelect={ route.callback }
-                selectedId={ route.selectedId }
-                {...globalNavigatorProps}
-            />)
-        case "SelectPayee":
-            return ( <PayeeSelectScreen
-                onSelect={ route.callback }
-                selectedId={ route.selectedId }
-                title={"Select Payee"}
-                leftButton={"Back"}
-                {...globalNavigatorProps}
-            />)
-        case "SelectAccount":
+    switch( route.name ) {
+    case "ListExpenses":
+        // TODO remove FormattedWrapper, use getChildContext instead
+        return (          
+            <ExpensesListScreen {...globalNavigatorProps} />
+        )
+      case "EnterExpense":
+        // TODO remove FormattedWrapper, use getChildContext instead
+        return (
+            <ExpenseEntryScreen
+              expense={route.expense}
+              {...globalNavigatorProps} />
+        )
+      case "SelectEnvelope":
+        return (<EnvelopeSelectScreen
+            onSelect={ route.callback }
+            selectedId={ route.selectedId }
+            {...globalNavigatorProps}
+          />)
+      case "SelectPayee":
+        return ( <PayeeSelectScreen
+          onSelect={ route.callback }
+          selectedId={ route.selectedId }
+      title={"Select Payee"}
+            leftButton={"Back"}
+            {...globalNavigatorProps}
+          />)
+      case "SelectAccount":
         return (<AccountSelectScreen
-                onSelect={ route.callback }
-                selectedId={ route.selectedId }
-                {...globalNavigatorProps}
-            />)
-      }
+          onSelect={ route.callback }
+          selectedId={ route.selectedId }
+          {...globalNavigatorProps}
+      />)
+}
   }
   render() {
     return (
-        <Provider store={store}>
-            <Navigator
-                initialRoute={{ name: "ListExpenses" }}
-                renderScene={this._renderScene}
-                navigationBar={
-                  <Navigator.NavigationBar
-                    routeMapper={ NavigationBarRouteMapper }
-                    style={{backgroundColor:colors.lightShade, height:45, paddingTop: 5}}
-                  />
-                }
-            />
-        </Provider>
+      <GlobalizeProvider>
+      <Provider store={store}>
+        <Navigator
+          initialRoute={{ name: "ListExpenses" }}
+          renderScene={this._renderScene}
+          navigationBar={
+            <Navigator.NavigationBar
+            routeMapper={ NavigationBarRouteMapper }
+            style={{backgroundColor:colors.lightShade, height:45, paddingTop: 5}}
+    />
+          }
+        />
+      </Provider>
+      </GlobalizeProvider>
     );
   }
 }

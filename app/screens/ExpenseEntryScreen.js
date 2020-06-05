@@ -199,4 +199,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-module.exports = connect(null, mapDispatchToProps)(ExpenseEntryScreen)
+export default connect(null, mapDispatchToProps)(ExpenseEntryScreen)

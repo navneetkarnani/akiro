@@ -145,4 +145,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-module.exports = connect(mapStateToProps)(EnvelopeSelectScreen)
+export default connect(mapStateToProps)(EnvelopeSelectScreen)

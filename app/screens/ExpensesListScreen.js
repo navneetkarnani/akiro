@@ -2,7 +2,8 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, ListView, StatusBar, StyleSheet } from 'react-native';
+import { View, StatusBar, StyleSheet } from 'react-native';
+import ListView from 'deprecated-react-native-listview';
 import { Button } from 'react-native-elements'
 import { connect } from 'react-redux'
 
