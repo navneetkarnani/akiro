@@ -53,6 +53,7 @@ class ExpensesListScreen extends Component {
         <StatusBar />
         <PhoneStatusBar />
         <ListView
+            key={expense => expense.id}
             dataSource={ this.state.expensesDataSource }
             renderRow={ this._renderExpenseRow.bind(this) }
             enableEmptySections={true}
