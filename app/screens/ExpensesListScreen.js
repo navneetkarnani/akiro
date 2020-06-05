@@ -1,6 +1,7 @@
 'use strict';
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View, ListView, StatusBar, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements'
 import { connect } from 'react-redux'

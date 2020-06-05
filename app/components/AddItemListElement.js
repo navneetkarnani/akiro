@@ -1,10 +1,10 @@
 'use strict';
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { View, StyleSheet, TouchableHighlight } from 'react-native';
-import { Text, Icon } from 'react-native-elements'
-
-import colors from '../config/colors'
+import { Text, Icon } from 'react-native-elements';
+import PropTypes from 'prop-types';
+import colors from '../config/colors';
 
 class AddItemListElement extends Component {
     render() {
