@@ -47,7 +47,7 @@ class EnvelopeSelectScreen extends Component {
     }
   }
 
-  componentWillReceiveProps( newProps ) {
+  UNSAFE_componentWillReceiveProps( newProps ) {
       if ( newProps.envelopes !== this.props.envelopes ) {
           this.setState({
             envelopesDataSource: this.state.envelopesDataSource.cloneWithRows(newProps.envelopes)

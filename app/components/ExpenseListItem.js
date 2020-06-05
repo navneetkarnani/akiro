@@ -22,6 +22,7 @@ const ExpenseListItem = ({
 }) => {
   return (
     <TouchableHighlight
+      key={expense.id}
       onPress={onPress}
       underlayColor={underlayColor}
       style={[styles.container, containerStyle && containerStyle]}>

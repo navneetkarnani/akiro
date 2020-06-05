@@ -7,6 +7,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 import { Navigator } from 'react-native-deprecated-custom-components';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { GlobalizeProvider, loadCldr } from 'react-native-globalize';
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
@@ -60,6 +61,9 @@ loadCldr(
   require('react-native-globalize/locale-data/de'),
   require('react-native-globalize/locale-data/en'),
 );
+
+// Load fonts
+MaterialIcons.loadFont();
 
 const sagaMiddleware = createSagaMiddleware();
 let store = createStore( expenseTracker, applyMiddleware(sagaMiddleware) );

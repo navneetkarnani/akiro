@@ -20,7 +20,7 @@ class AccountSelectScreen extends Component {
     }
   }
 
-  componentWillReceiveProps( newProps ) {
+  UNSAFE_componentWillReceiveProps( newProps ) {
       if ( newProps.accounts !== this.props.accounts ) {
           this.setState({
             accountsDataSource: this.state.accountsDataSource.cloneWithRows(newProps.accounts)

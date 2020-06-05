@@ -2,7 +2,8 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, ScrollView, StatusBar, StyleSheet, TextInput, DatePickerIOS } from 'react-native';
+import { View, ScrollView, StatusBar, StyleSheet, TextInput } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import { Button } from 'react-native-elements'
 import { connect } from 'react-redux'
 
@@ -146,7 +147,13 @@ class ExpenseEntryScreen extends Component {
                     multiline={true}
                     style={[styles.memoInput, styles.container]}
                 />
-                <DatePickerIOS mode="date" date={new Date(this.state.date)} onDateChange={this.onDateChange} />
+                <DateTimePicker
+                  value={new Date(this.state.date)}
+                  mode={"date"}
+                  is24Hour={true}
+                  display="default"
+                  onChange={this.onDateChange}
+                />
                 <Button
                   onPress={ this.onPressSave.bind(this) }
                   title="Save"

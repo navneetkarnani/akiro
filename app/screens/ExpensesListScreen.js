@@ -24,7 +24,7 @@ class ExpensesListScreen extends Component {
     }
   }
 
-  componentWillReceiveProps( newProps ) {
+  UNSAFE_componentWillReceiveProps( newProps ) {
       if ( newProps.expenses !== this.props.expenses ) {
           this.setState({
             expensesDataSource: this.state.expensesDataSource.cloneWithRows(newProps.expenses)
@@ -53,7 +53,6 @@ class ExpensesListScreen extends Component {
         <StatusBar />
         <PhoneStatusBar />
         <ListView
-            key={expense => expense.id}
             dataSource={ this.state.expensesDataSource }
             renderRow={ this._renderExpenseRow.bind(this) }
             enableEmptySections={true}
@@ -72,6 +71,7 @@ class ExpensesListScreen extends Component {
   _renderExpenseRow( expense ) {
     return (
       <ExpenseListItem
+          key={expense.id}
           expense={ expense }
           onPress={ () => { this._onSelectExpense( expense ) } }
       />

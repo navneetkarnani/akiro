@@ -76,7 +76,7 @@ class PayeeSelectScreen extends Component {
     }
   }
 
-  componentWillReceiveProps( newProps ) {
+  UNSAFE_componentWillReceiveProps( newProps ) {
       if ( newProps.payees !== this.props.payees ) {
           const { dataBlob, sectionIds, rowIds } = prepareData( newProps.payees );
           this.setState({
