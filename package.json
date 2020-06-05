@@ -1,24 +1,24 @@
 {
-  "name": "Akiro",
+  "name": "akiro",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-	    "ios": "react-native run-ios",
-	    "start": "react-native start",
-	    "test": "jest",
-	    "lint": "eslint ."
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
   },
   "dependencies": {
     "react": "16.11.0",
     "react-native": "0.62.2",
-    "react-native-elements": "^0.6.3",
-    "react-native-globalize": "^0.7.0",
-    "react-native-sqlite-storage": "^3.1.2",
-    "react-native-vector-icons": "^2.1.0",
-    "react-redux": "^5.0.1",
-    "redux": "^3.6.0",
-    "redux-saga": "^0.14.0"
+    "react-native-elements": "^2.0.2",
+    "react-native-globalize": "^4.3.1",
+    "react-native-sqlite-storage": "^5.0.0",
+    "react-native-vector-icons": "6.6.0",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-saga": "^1.1.3"
   },
   "jest": {
     "preset": "jest-react-native"
@@ -26,7 +26,7 @@
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/runtime": "^7.6.2",
-    "@react-native-community/eslint-config": "^0.0.5",
+    "@react-native-community/eslint-config": "^1.1.0",
     "babel-jest": "^24.9.0",
     "eslint": "^6.5.1",
     "jest": "^24.9.0",
